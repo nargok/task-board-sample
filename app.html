@@ -28,22 +28,28 @@
             <span class="tag">未対応</span>
             <span class="tag is-dark">{{ tasksOpen.length }}</span>
           </div>
-          <task-card v-bind:task="task" v-for="task in tasksOpen":key="task.name"></task-card>
+          <transition-group name="fade">
+            <!-- v-vind:task="task"でtask-cardのpropsへtaskのデータを渡す -->
+            <task-card v-bind:task="task" v-for="task in tasksOpen":key="task.name"></task-card>
+          </transition-group>
         </div>
         <div class="column status-2">
           <div class="tags has-addons">
             <span class="tag">処理中</span>
-            <span class="tag is-dark"></span>
+            <span class="tag is-dark">{{ tasksDoing.length }}</span>
           </div>
-          <!-- v-vind:task="task"でtask-cardのpropsへtaskのデータを渡す -->
-          <task-card v-bind:task="task" v-for="task in tasksDoing":key="task.name"></task-card>
+          <transition-group name="fade">
+            <task-card v-bind:task="task" v-for="task in tasksDoing":key="task.name"></task-card>
+          </transition-group>
         </div>
         <div class="column status-3">
           <div class="tags has-addons">
             <span class="tag">完了</span>
-            <span class="tag is-dark"></span>
+            <span class="tag is-dark">{{ tasksClosed.length }}</span>
           </div>
-          <task-card v-bind:task="task" v-for="task in tasksClosed":key="task.name"></task-card>
+          <transition-group name="fade">
+            <task-card v-bind:task="task" v-for="task in tasksClosed":key="task.name"></task-card>
+          </transition-group>
         </div>
       </div>
     </div>
