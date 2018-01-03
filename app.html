@@ -24,6 +24,7 @@
             <span class="tag">処理中</span>
             <span class="tag is-dark"></span>
           </div>
+          <!-- v-vind:task="task"でtask-cardのpropsへtaskのデータを渡す -->
           <task-card v-bind:task="task" v-for="task in tasksDoing":key="task.name"></task-card>
         </div>
         <div class="column status-3">
