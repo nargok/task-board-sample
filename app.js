@@ -16,6 +16,11 @@ var filters = {
   }
 }
 
+Vue.component('task-card', {
+  props: ['task'],
+  template: '<div class="card"><div class="card-content">{{ task.name }}</div><footer class="card-footer"><div class="card-footer-item">{{ task.assignee }}</div><div class="card-footer-item">{{ task.mandays }} 人日</div></footer><footer class="card-footer"><a class="card-footer-item">◀︎</a><a class="card-footer-item">▶︎</a></footer></div>'
+})
+
 new Vue({
   el: '#board',
   data: {
