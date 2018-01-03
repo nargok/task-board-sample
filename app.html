@@ -11,6 +11,17 @@
 <body>
   <section class="section" id="board">
     <div class="container">
+      <!-- v-model 対応するVueインスタンスのデータを指定する フォームの値の変更をVueインスタンス内に反映する -->
+      <input type="text" v-model="newTaskName" placeholder="Task name"/>
+      <select v-model="newTaskAssignee">
+        <option value="Taro">Taro</option>
+        <option value="Jiro">Jiro</option>
+        <option value="Sabro">Taro</option>
+        <option value="Shiro">Shiro</option>
+      </select>
+      <input type="number"  v-model="newTaskMandays" placeholder="Mondays"/>
+      <button @click="addTask">追加</button>
+      <hr>
       <div class="columns">
         <div class="column status-1">
           <div class="tags has-addons">

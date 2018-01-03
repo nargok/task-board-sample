@@ -41,7 +41,10 @@ new Vue({
       { name: 'task2', status: 1, assignee: 'Jiro', mandays: 2 },
       { name: 'task3', status: 2, assignee: 'Sabro', mandays: 1 },
       { name: 'task4', status: 3, assignee: 'Shiro', mandays: 1 }
-    ]
+    ],
+    newTaskName: '',
+    newTaskAssignee: '',
+    newTaskMandays: 0
   },
   // 定義した処理を呼ぶ
   // Vueインスタンスでtasksデータが更新された際に評価される
@@ -54,6 +57,11 @@ new Vue({
     },
     tasksClosed: function () {
       return filters.closed(this.tasks)
+    }
+  },
+  methods: {
+    addTask () {
+      this.tasks.push({ name: this.newTaskName, status: 1, assignee: this.newTaskAssignee, mandays: this.newTaskMandays })
     }
   }
 })
